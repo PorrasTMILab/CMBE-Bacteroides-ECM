@@ -1,13 +1,12 @@
 #!/bin/bash
-#SBATCH --job-name=run_prokka.slurm                         #job name
-#SBATCH --mail-type=ALL
-#SBATCH --mail-user=                                        #where to send email    
-#SBATCH --ntasks=1                                          #run on a single CPU
-#SBATCH --cpus-per-task=8                                   #Number of cpu cores to use (adjust as needed)
-#SBATCH --mem=32gb                                          #job memory request
-#SBATCH --time=24:00:00                                     #time limit hrs:min:sec
-#SBATCH --output=run_prokka_%j.log                          #standard output and error log
-
+#SBATCH --job-name=prokka_bacteroides                   # job name
+#SBATCH --mail-type=END,FAIL                             # adjust email notifications as needed
+#SBATCH --mail-user=your.email@example.com               # your email here
+#SBATCH --ntasks=1                                       # single CPU task
+#SBATCH --cpus-per-task=8                                # Number of CPU cores
+#SBATCH --mem=32gb                                       # memory
+#SBATCH --time=24:00:00                                  # time limit
+#SBATCH --output=logs/run_prokka_%j.log                  # output log file
 
 # Deactivate conda and Java interference
 conda deactivate 2>/dev/null || true
@@ -19,10 +18,10 @@ module purge
 module load prokka/1.14.6
 
 # Define input and output directories
-INPUT_DIR="/home/username/project/data/"
-OUTPUT_BASE="/home/username/project/data/"
+INPUT_DIR="../genomes"                  # Folder with input .fna files
+OUTPUT_BASE="../results/prokka_runs"   # Output directory for Prokka results
 
-# Make output directory if needed
+# Make sure output directory exists
 mkdir -p "$OUTPUT_BASE"
 
 # Loop through each .fna file and run Prokka
