@@ -8,7 +8,7 @@ This repository contains scripts, files, and data used in the genomic analysis a
 *Bacteroides* genomes to identify carbohydrate-active enzymes (CAZymes) and proteases specific to extracellular matrix (ECM) components. The authors of this manuscript are Karen M Mancera Azamar, Krishna Rajesh, Bryanna Downing, Marcos Javith, Isabela Yamhure, Ana Maria Porras.
 
 
-##Directory content
+## Directory content
 ### Annotations
 Bash scripts for prokaryotic genome annotation of *Bacteroides* spp. were executed on a high‑performance computing (HPC) cluster. Prokka was used to perform structural annotation, including prediction of coding sequences (CDS), rRNAs, tRNAs, and associated amino acid sequences. The eggNOG‑mapper pipeline was used to assign functional annotations, including COG categories, KEGG orthologs, and predicted EC numbers. The run_dbCAN module identified and assigned CAZyme family designations using HMMER, DIAMOND, and Hotpep evidence. The MEROPS database was cross‑checked through phmmer searches against MEROPS peptidase sequences to assign proteolytic families based on Prokka‑predicted amino acid sequences.
 
