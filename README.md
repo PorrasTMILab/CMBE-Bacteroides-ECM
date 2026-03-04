@@ -26,7 +26,7 @@ The ECM database was constructed to identify enzymes with known activity on extr
 | File Name           | Input                | Output                | Type                 | Description                        |
 |---------------------|----------------------|-----------------------|----------------------|----------------------------------|
 | build_ecm_database.R | None | UniProt_PLUS_BRENDA_CollapsedByEC.csv | R script (.R) | R script used to build the ECM database.<br>Output file contains all BRENDA results and the associated UniProtKB information|
-| map_ec_cazyme_protease_annotations.R | UniProt_PLUS_BRENDA_CollapsedByEC.csv | filtered_ecm.csv | R script (.R) | Script to parse ECM sequence data |
+| map_ec_annotations.R | UniProt_PLUS_BRENDA_CollapsedByEC.csv | ecm_mapped_combined.csv | R script (.R) | Script to parse ECM sequence data |
 
 
 
