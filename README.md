@@ -45,7 +45,7 @@ The Mantel test was used to compare genomic predictions (gene counts per species
 The R scripts generate Figures 3-4 in the main text, and Supplementary Figure 2. Some figures were refined in Affinity Designer vector-level aesthetic adjustments. Additional figures in the manuscript were created using GraphPad Prism.
 | File Name           | Input                | Output                | Type                 | Description                        |
 |---------------------|----------------------|-----------------------|----------------------|----------------------------------|
-| plot_dotplot.R      | genome_comparison.csv| dotplot.png           | R script (.R)        | Creates dotplot of protease/CAZymes families<br> (Figure 3)|
-| heatmap_plot.R     | enzyme_abundance.csv | heatmap.png           | R script (.R)  | Generates heatmap of enzyme data<br> (Figure 4) |
+| Fig3_dotplot.R      | genome_comparison.csv| dotplot.png           | R script (.R)        | Creates dotplot of protease/CAZymes families<br> (Figure 3)|
+| Fig4_heatmap.R     | enzyme_abundance.csv | heatmap.png           | R script (.R)  | Generates heatmap of enzyme data<br> (Figure 4) |
 
 
