@@ -13,7 +13,7 @@ Bash scripts for prokaryotic genome annotation of *Bacteroides* spp. were execut
 
 | File Name           | Input                | Output                | Type                 | Description                        |
 |---------------------|----------------------|-----------------------|----------------------|----------------------------------|
-| scripts_Prokka_eggNOG_run-dbCAN_MEROPS     | genome.fasta         | prokka_output <br>eggNOG_results <br>dbcan_results.csv <br>merops_results.csv     | Shell script (.sh)<br> Ran on HPC    | Runs Prokka genome annotation    |
+| scripts_Prokka_eggNOG_run-dbCAN_MEROPS     | genome.fasta         | prokka_output <br>eggNOG_results <br>dbcan_results.csv <br>merops_results.csv     | Shell script (.sh)<br> Ran on HPC    | Runs Prokka <br>Runs eggNOG <br>Runs run_dbCAN <br>Runs MEROPS search|
 
 
 
@@ -36,6 +36,8 @@ The Mantel test was used to compare genomic predictions (gene counts per species
 |---------------------|----------------------|-----------------------|----------------------|----------------------------------|
 | mantel_test.R       | distance_matrix.csv  | mantel_results.txt    | R script (.R)        | Performs Mantel test              |
 | spearman_corr.R    | abundance_table.csv  | spearman_results.csv  | R script (.R)   | Calculates Spearman's correlation|
+| hcluster.R    | gene_counts.csv  | hc_upgma.png <br>hc_upgma.pdf  | R script (.R)   | Plots Bray-Curtis hierarchical clustering UPGMA based on interstinal relevant substrate gene counts|
+
 
 
 
