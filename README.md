@@ -48,4 +48,4 @@ This repository contains scripts, files, and data used in the genomic analysis a
 | File Name           | Type                 | Description                        |
 |---------------------|----------------------|----------------------------------|
 | supplementary_table1.csv |   file (.csv)    | Full ECM database including all BRENDA results from individual ECM terms and the UniProtKB results            |
-| supplementary_table2.csv|  file (.csv)  | Bacteroides annotations with mappings to ECM substrates    |
+| supplementary_table2.csv|  file (.csv)  | *Bacteroides* annotations with mappings to ECM substrates    |
