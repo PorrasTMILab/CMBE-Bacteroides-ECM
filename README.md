@@ -14,6 +14,7 @@ Bash scripts for prokaryotic genome annotation of *Bacteroides* spp. were execut
 | File Name           | Input                | Output                | Type                 | Description                        |
 |---------------------|----------------------|-----------------------|----------------------|----------------------------------|
 | scripts_Prokka_eggNOG_run-dbCAN_MEROPS     | genome.fasta         | prokka_output <br>eggNOG_results <br>dbcan_results.csv <br>merops_results.csv     | Shell script (.sh)<br> Ran on HPC    | Runs Prokka <br>Runs eggNOG <br>Runs run_dbCAN <br>Runs MEROPS search|
+| full_raw_annotations_all_species          |                 |                 | .csv                 | All species raw genome annotations from run_dbCAN, eggNOG, prokka, and hmmer MEROPS search                        |
 
 
 
@@ -25,8 +26,8 @@ The ECM database was constructed to identify enzymes with known activity on extr
    
 | File Name           | Input                | Output                | Type                 | Description                        |
 |---------------------|----------------------|-----------------------|----------------------|----------------------------------|
-| build_ecm_database.R | None | db_ECM.csv | R script (.R) | R script used to build the ECM database.<br>Output file contains all BRENDA results and the associated UniProtKB information|
-| map_ec_annotations.R | db_ECM.csv | ecm_mapped_combined.csv | R script (.R) | Script to parse ECM database and annotation results |
+| collection_BRENDA_and_MEROPS_ECM_enzyme_databases.R | None | db_ECM_BRENDA_revised.csv | R script (.R) | R script used to build the ECM database.<br>Output file contains all BRENDA results and the associated UniProtKB information|
+| Annotations_mapping_to_ECM_substrates.R | db_ECM_BRENDA_revised.csv / db_ECM_MEROPS_protease_families | ecm_mapped_combined.csv | R script (.R) | Script to parse ECM database and annotation results |
 
 
 
