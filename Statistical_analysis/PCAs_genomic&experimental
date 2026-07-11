@@ -1,0 +1,116 @@
+```{r}
+library(XML)
+library(readr)
+library(readxl)
+library(dplyr)
+library(purrr)
+library(tidyr)
+library(ggplot2)
+library(plotly)
+library(gapminder)
+library(paletteer)
+library(pheatmap)
+library(ggdendro)
+library(cowplot)
+library(stringr)
+library(ggrepel)
+library(ggrounded)
+library(forcats)
+library(grid) 
+library(xfun)
+library(ggtext)
+library(fillpattern)
+library(ggpattern)
+library(tidyverse)
+library(ggalluvial)
+library(viridis)
+library(igraph)
+library(ggraph)
+library(scales)
+library(magick)
+library(schrute)
+library(treemapify)
+library(RColorBrewer)
+library(tidytext)
+library(openxlsx)
+library(Hmisc)
+
+
+```
+
+```{r}
+# Assuming dfA_z and dfB_z are data.frames with species in 'Strain' column and z-scored numeric substrates
+
+plot_pca <- function(df_z, title) {
+  species <- df_z$Strain
+  data_numeric <- df_z %>% select(-Strain)
+  
+  # Run PCA (no centering/scaling since data already z-scored)
+  pca_res <- prcomp(data_numeric, center = FALSE, scale. = FALSE)
+  
+  # Variance explained
+  var_explained <- round(100 * (pca_res$sdev^2 / sum(pca_res$sdev^2)), 1)
+  
+  # Scores for PC1 and PC2
+  scores <- as.data.frame(pca_res$x[, 1:5])
+  scores$Strain <- species
+  
+  # Loadings
+  loadings <- as.data.frame(pca_res$rotation[, 1:5])
+  loadings$Substrate <- rownames(loadings)
+  
+  # Scatter plot PC1 vs PC2 with species labels
+  gg <- ggplot(scores, aes(x = PC1, y = PC2, label = Strain)) +
+    geom_point(color = "steelblue", size = 3) +
+    geom_text_repel(max.overlaps = 20) +
+    labs(
+      title = paste(title, "PCA: PC1 vs PC2"),
+      x = paste0("PC1 (", var_explained[1], "% variance)"),
+      y = paste0("PC2 (", var_explained[2], "% variance)")
+    ) +
+    theme_minimal()
+  
+  list(plot = gg, variance_explained = var_explained[1:5], loadings = loadings)
+}
+
+# Plot and save PCA for computational matrix
+pcaA_res <- plot_pca(dfA_z, "Computational")
+
+# Plot and save PCA for experimental matrix
+pcaB_res <- plot_pca(dfB_z, "Experimental")
+
+# Display plots
+print(pcaA_res$plot)
+print(pcaB_res$plot)
+
+
+
+# Save variance explained as CSV
+var_exp_df <- tibble(
+  Matrix = c("Computational", "Experimental"),
+  PC1_Variance_Explained = c(pcaA_res$variance_explained[1], 
+                             pcaB_res$variance_explained[1]),
+  PC2_Variance_Explained = c(pcaA_res$variance_explained[2], 
+                             pcaB_res$variance_explained[2]),
+  PC3_Variance_Explained = c(pcaA_res$variance_explained[3], 
+                             pcaB_res$variance_explained[3]),
+  PC4_Variance_Explained = c(pcaA_res$variance_explained[4], 
+                             pcaB_res$variance_explained[4]),
+  P5_Variance_Explained = c(pcaA_res$variance_explained[5], 
+                             pcaB_res$variance_explained[5]),
+)
+
+
+# For computational PCA scores & variance
+scores_A <- as.data.frame(pcaA_res$plot$data)  # if using ggplot object, else extract from pca
+scores_A$Sample <- rownames(pcaA_res$plot$data)
+
+var_exp_A <- pcaA_res$variance_explained
+
+
+
+# For experimental PCA scores & variance
+scores_B <- as.data.frame(pcaB_res$plot$data)
+scores_B$Sample <- rownames(pcaB_res$plot$data)
+
+var_exp_B <- pcaB_res$variance_explained
