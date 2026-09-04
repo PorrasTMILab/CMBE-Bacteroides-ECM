@@ -27,8 +27,10 @@ The ECM database was constructed to identify enzymes with known activity on extr
 | File Name           | Input                | Output                | Type                 | Description                        |
 |---------------------|----------------------|-----------------------|----------------------|----------------------------------|
 | collection_BRENDA_and_MEROPS_ECM_enzyme_databases.R | None | db_ECM_BRENDA_revised.csv | R script (.R) | R script used to build the ECM database.<br>Output file contains all BRENDA results and the associated UniProtKB information|
-| Annotations_mapping_to_ECM_substrates.R | db_ECM_BRENDA_revised.csv / db_ECM_MEROPS_protease_families | ecm_mapped_combined.csv | R script (.R) | Script to parse ECM database and annotation results |
-
+| db_ECM_BRENDA_revised.csv | | | .csv | List of all enzymes with ECM substrates and relevant information from BRENDA, and UniProt based on their unique EC number |
+| db_ECM_MEROPS_protease_families.xlsx | | | .csv | List of protease families documented in the MEROPS database with ECM substrate targets |
+| Annotations_mapping_to_ECM_substrates.R | full_raw_annotations_all_species.csv <br> db_ECM_BRENDA_revised.csv <br> db_ECM_MEROPS_protease_families.xlsx | ECM_mapped_annotations_revised.csv | R script (.R) | Script to map annotation results to ECM databases | 
+| ECM_mapped_annotations_revised.csv | | | .csv | List of annotated genes for all species that were mapped to an enzyme with at least one ECM substrate target |
 
 
 ### Statistical_analysis
