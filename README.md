@@ -1,5 +1,5 @@
 # CMBE-Bacteroides-ECM
-# Comparative Genomic and Functional Profiling of ECM-Targeting Enzymes in *Bacteroides*, a Key Genus of the Human Gut Microbiome
+# Comparative Genomic and Functional Profiling of ECM-Associated Enzymes in *Bacteroides*, a Key Genus of the Human Gut Microbiome
 
 ## Overview
 
